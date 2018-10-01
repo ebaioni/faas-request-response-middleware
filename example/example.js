@@ -1,4 +1,3 @@
-// @flow
 import { FaasMiddleware } from 'faas-request-response-middleware';
 
 const lambdaHandler = (event, context, callback) => {

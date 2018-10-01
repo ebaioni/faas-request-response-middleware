@@ -1,6 +1,6 @@
 {
   "name": "faas-request-response-middleware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Middleware for your aws lambda function in node",
   "main": "lib/index.js",
   "scripts": {
