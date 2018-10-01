@@ -1,18 +1,19 @@
 {
   "name": "faas-request-response-middleware",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Middleware for your aws lambda function in node",
   "main": "lib/index.js",
   "scripts": {
     "dev:build": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "build": "npm run flow:check && node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "build": "npm run flow:check && node_modules/babel-cli/bin/babel.js src --out-dir lib && npm run flow:copy",
     "dev:test": "jest --watch",
     "test": "jest",
     "lint": "./node_modules/.bin/eslint src/",
     "flow": "flow",
     "flow:check": "flow check ./src/",
     "flow:build": "flow-remove-types ./src/ -d ./lib/ --all --pretty",
-    "flow:deps": "flow-typed install"
+    "flow:deps": "flow-typed install",
+    "flow:copy": "flow-copy-source src lib"
   },
   "keywords": [
     "faas",
