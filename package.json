@@ -1,0 +1,40 @@
+{
+  "name": "faas-request-response-middleware",
+  "version": "1.0.0",
+  "description": "Middleware for your aws lambda function in node",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev:build": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "build": "npm run flow:check && node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "dev:test": "jest --watch",
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint src/",
+    "flow": "flow",
+    "flow:check": "flow check ./src/",
+    "flow:build": "flow-remove-types ./src/ -d ./lib/ --all --pretty",
+    "flow:deps": "flow-typed install"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "flow-bin": "^0.78.0",
+    "flow-copy-source": "^2.0.2",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
+  },
+  "dependencies": {}
+}

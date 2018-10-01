@@ -1,0 +1,43 @@
+{
+  "extends": ["airbnb-base", "plugin:flowtype/recommended"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "indent": ["error", 4, {"SwitchCase": 1}],
+    "no-plusplus": "off",
+    "max-len": ["error", 130, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }
+    ],
+    "no-multi-spaces": ["error", {
+      "ignoreEOLComments": true
+    }],
+    "comma-dangle": ["warn", "always-multiline"],
+    "class-methods-use-this": "off",
+    "no-continue": "off",
+    "valid-jsdoc": ["error", { "requireParamDescription": false, "requireReturnDescription": false, "requireReturn": false }],
+    "no-param-reassign": "off",
+    "no-lonely-if": "off",
+    "arrow-body-style": "off",
+    "no-mixed-operators": "off",
+    "prefer-destructuring": "off",
+    "object-shorthand": "warn",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "func-names": "off",
+    "consistent-return": "off",
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "operator-linebreak": "off"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}
