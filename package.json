@@ -14,7 +14,14 @@
     "flow:build": "flow-remove-types ./src/ -d ./lib/ --all --pretty",
     "flow:deps": "flow-typed install"
   },
-  "author": "",
+  "keywords": [
+    "faas",
+    "middleware",
+    "lambda",
+    "nodejs",
+    "aws"
+  ],
+  "author": "Enrico Baioni",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,5 +1,5 @@
 // @flow
-import { FaasMiddleware } from './index';
+import { FaasMiddleware } from 'faas-request-response-middleware';
 
 const lambdaHandler = (event, context, callback) => {
     const fakePayload = {
@@ -13,7 +13,7 @@ const lambdaHandler = (event, context, callback) => {
 };
 const paramValidation = (event, context) => false;
 const options = {
-    responseToBeAPIGWComplaint: 'yes'
+    responseToBeAPIGWComplaint: 'yes',
 };
 const fmw = new FaasMiddleware(lambdaHandler, null, null, paramValidation, paramValidation, options);
 

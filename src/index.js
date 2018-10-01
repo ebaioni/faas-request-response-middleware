@@ -111,31 +111,23 @@ export class FaasMiddleware {
         return (event: any, context: any, callback: Function) => {
             const buildApiResponse = this.shouldPrepareApiGatewayResponse(event);
             const useValidator = this.shouldUseValidator(event);
-            // console.log('faas middleware', event, context);
             if (useValidator && !this.reqV(event)) {
-                // console.log('faas mw - invalid request');
                 return buildApiResponse ? callback(null, buildBadRequest()) : callback({ message: 'invalid request' });
             }
-            // console.log('faas mw - valid request');
             const transformedEvent = this.reqT(event, context);
-            console.log('faas mw - transformedEvent request', transformedEvent);
             this.originalHandler(transformedEvent, context, (err, res) => {
                 if (err) {
-                    console.log('faas mw - error processing request');
                     return buildApiResponse ? callback(null, buildServerError(err)) : callback(err);
                 }
                 if (useValidator && !this.resV(res)) {
-                    console.log('faas mw - invalid response generated');
                     const message = {
                         message: 'invalid response',
                         response: res,
                     };
                     return buildApiResponse ? callback(null, buildServerError(message)) : callback(message);
                 }
-                console.log('faas mw - valid response');
                 try {
                     const transformedResponse = this.resT(res, context);
-                    console.log('faas mw - transformedEvent response', transformedResponse);
                     return callback(null, buildApiResponse ? buildOk(transformedResponse) : transformedResponse);
                 } catch (e) {
                     console.error(e);
